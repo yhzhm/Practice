@@ -1,0 +1,22 @@
+#prompt{  
+    /*希望窗口有边框*/  
+    border: 0px;  
+    width: 150px;  
+    height: 40px;  
+    /*控制窗口的位置*/  
+    position: absolute;
+    background-color: black;
+    color: white; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;   
+      
+    display: none;
+}  
+  
+#content{
+    background-color: black;
+    width: 80%;
+    height: 20px;
+    margin: 10px auto;
+    text-align: center;
+}
