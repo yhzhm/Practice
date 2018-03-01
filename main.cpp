@@ -1,56 +1,55 @@
-#include <iostream>
-#include "sortTestHelper.h"
+#include <bits/stdc++.h>
+
 using namespace std;
-template <typename T>
-void selectionSort(T arr[],int n)
-{
-    for(int i=0;i<n;i++){
-        int minIndex=i;
-        for(int j=i+1;j<n;j++){
-            if(arr[j]<arr[minIndex]) minIndex=j;
-        }
-        swap(arr[i],arr[minIndex]);
-    }
-}
-template <typename T>
-void insertionSort(T arr[],int n){
-    for(int i=1;i<n;i++) {
-//方法一
-//        for(int j=i;j>0;j--){
-//            if(arr[j]<arr[j-1])
-//                swap(arr[j],arr[j-1]);
-//            else
-//                break;
-//        }
-//方法二
-        for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--)
-            swap(arr[j], arr[j - 1]);
-    }
+bool a[52][52];
+char b[52][52];
+int ans;
+
+void dfs(int x, int y) {
+    ans++;
+    a[x][y] = false;
+    if (a[x - 1][y]) dfs(x - 1, y);
+    if (a[x][y + 1]) dfs(x, y + 1);
+    if (a[x + 1][y]) dfs(x + 1, y);
+    if (a[x][y - 1]) dfs(x, y - 1);
 }
 
-template <typename T>
-void insertionSort2(T arr[],int n){
-    for(int i=1;i<n;i++) {
-        int key=arr[i];
-        int j=i-1;
-        while(j>=0&&arr[j]>key){
-            arr[j+1]=arr[j];
-            j--;
+int main() {
+//    freopen("tile.in", "r", stdin);
+//    freopen("tile.out", "w", stdout);
+    for (int i = 0; i < 52; ++i) {
+        for (int j = 0; j < 52; ++j) {
+            b[i][j] = '*';
         }
-        arr[j+1]=key;
-    }
-}
-int main(){
-    const int N=20000;
-    int *arr=sortTestHelper::generateRandomArray(N,0,N);
-    int *arr2=sortTestHelper::copyIntArray(arr,N);
-    int *arr3=sortTestHelper::copyIntArray(arr,N);
-    sortTestHelper::testSort("Selection Sort",selectionSort,arr,N);
-    sortTestHelper::testSort("Insertion Sort",insertionSort,arr2,N);
-    sortTestHelper::testSort("Insertion Sort2",insertionSort2,arr3,N);
-    delete[] arr;
-    delete[] arr2;
-    delete[] arr3;
 
+    }
+    int h, w, bx, by;
+    scanf("%d%d", &w, &h);
+    char c;
+    for (int i = 1; i <= h ; ++i) {
+        for (int j = 1; j <= w+1 ; ++j) {
+            scanf("%c", &c);
+//			cin>>c;
+            b[i][j] = c;
+            if (c == '.') a[i][j] = true;
+            else if (c == '@') {
+                bx = i;
+                by = j;
+                a[i][j] = true;
+            }
+        }
+//        scanf("*");
+    }
+
+    for (int i = 1; i <= h+1 ; ++i) {
+        for (int j = 1; j <= w+1 ; ++j) {
+            cout << b[i][j] << ' ';
+        }
+        cout << endl;
+    }
+//   cout<<':'<<(int)b[2][1]<<':'<<(int)b[2][w+1];
+
+    dfs(bx, by);
+    printf("%d\n", ans);
     return 0;
 }
