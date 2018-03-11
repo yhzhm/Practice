@@ -1,0 +1,15 @@
+{
+    "cmd": ["bash", "-c", "g++ -Wall -std=c++11 '${file}' -o '${file_path}/${file_base_name}' && osascript -e 'tell application \"Terminal\" to activate do script \"clear&&${file_path}/${file_base_name} && read -p \\\"Press Enter to exit.\\\" && rm ${file_path}/${file_base_name} &&exit\"'"],
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+    "variants":
+    [
+        {
+            "name": "Run",
+            //"cmd": ["bash", "-c", "g++ '${file}' -o '${file_path}/${file_base_name}' && '${file_path}/${file_base_name} <${file_base_name}.in'"]
+            "cmd": ["bash", "-c", "g++ -Wall -std=c++11 '${file}' -o '${file_path}/${file_base_name}.exe' && osascript -e 'tell application \"Terminal\" to activate do script \"clear&&'${file_path}/${file_base_name}.exe' <'${file_path}/${file_base_name}.in' &&read -p \\\"Press Enter to exit.\\\" && rm '${file_path}/${file_base_name}.exe' &&exit\"'"]
+
+        }
+    ]
+}

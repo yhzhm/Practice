@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"BracketHighlighter",
+		"ConvertToUTF8",
+		"DashDoc",
+		"DocBlockr",
+		"EasyClangComplete",
+		"Emmet",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeAStyleFormatter"
+	]
+}
