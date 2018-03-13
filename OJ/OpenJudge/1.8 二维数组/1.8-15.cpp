@@ -1,8 +1,8 @@
 // Created by Hz Yang on 2018.03
 #include <bits/stdc++.h>
 using namespace std;
-int a[11], b[11];
-void print(int &a[])
+int a[11][11], b[11][11];
+void print(int a[11][11])
 {
 	for (int i = 1; i <= 9; ++i) {
 		for (int j = 1; j <= 9; ++j) {
@@ -11,14 +11,15 @@ void print(int &a[])
 		cout << endl;
 	}
 }
-void cp(int &a[], int &b[])
+void cp(int a[11][11], int b[11][11])
 {
 	for (int i = 1; i <= 9; ++i)
-		for (int j = 1; j <= 9; ++j)
+		for (int j = 1; j <= 9; ++j) {
 			a[i][j] = b[i][j];
-	b[i][j] = 0;
+			b[i][j] = 0;
+		}
 }
-void grow(int &a[])
+void grow(int a[11][11], int b[11][11])
 {
 	for (int i = 1; i <= 9; ++i)
 		for (int j = 1; j <= 9; ++j) {
@@ -36,7 +37,7 @@ int main()
 	a[5][5] = m;
 	for (int i = 1; i <= n; ++i)
 	{
-		grow(a);
+		grow(a, b);
 		cp(a, b);
 	}
 	print(a);
