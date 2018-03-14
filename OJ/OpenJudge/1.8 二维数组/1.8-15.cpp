@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int a[11][11], b[11][11];
-void print(int a[11][11])
+void print()
 {
 	for (int i = 1; i <= 9; ++i) {
 		for (int j = 1; j <= 9; ++j) {
@@ -11,7 +11,7 @@ void print(int a[11][11])
 		cout << endl;
 	}
 }
-void cp(int a[11][11], int b[11][11])
+void cp()
 {
 	for (int i = 1; i <= 9; ++i)
 		for (int j = 1; j <= 9; ++j) {
@@ -19,7 +19,7 @@ void cp(int a[11][11], int b[11][11])
 			b[i][j] = 0;
 		}
 }
-void grow(int a[11][11], int b[11][11])
+void grow()
 {
 	for (int i = 1; i <= 9; ++i)
 		for (int j = 1; j <= 9; ++j) {
@@ -37,9 +37,9 @@ int main()
 	a[5][5] = m;
 	for (int i = 1; i <= n; ++i)
 	{
-		grow(a, b);
-		cp(a, b);
+		grow();
+		cp();
 	}
-	print(a);
+	print();
 	return 0;
 }
