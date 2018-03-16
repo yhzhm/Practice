@@ -1,0 +1,198 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/cpp.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pc",
+		"selected_items":
+		[
+			[
+				"pc",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 272.0,
+		"history":
+		[
+			"clear",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/C/tools/Sublime Text Build 3143 x64/Data/Packages/User/cpp.sublime-build",
+		"/E/Practice/OJ/OpenJudge/1.8 二维数组/1.8-14 扫雷游戏地雷数计算.cpp",
+		"/D/01/test副本.cpp",
+		"/D/01/00test副本.cpp",
+		"/D/01/00test - 副本.cpp",
+		"/E/Practice/Soft/sublime/MacUser/cpp.sublime-build",
+		"/D/01/00test.cpp",
+		"/D/test.cpp",
+		"/D/00/00test.cpp",
+		"/D/00测试/00test.cpp",
+		"/D/00 测试/00test.cpp",
+		"/D/00 测试/00测试test.cpp",
+		"/D/00 测试/00 测试 test.cpp",
+		"/E/Practice/OJ/OpenJudge/1.8 二维数组/未命名1.cpp",
+		"/E/Practice/OJ/OpenJudge/1.8 二维数组/1.8-14 扫雷游戏地雷数计算.in",
+		"/D/cpp.sublime-build",
+		"/C/tools/Sublime Text Build 3143 x64/Data/Packages/User/MySnippet/main_hai.sublime-snippet",
+		"/E/Practice/Soft/sublime/MacUser/userSnippet/headmain_hai.sublime-snippet",
+		"/C/tools/Sublime Text Build 3143 x64/Data/Packages/SublimeAStyleFormatter/Default (Windows).sublime-keymap",
+		"/C/tools/Sublime Text Build 3143 x64/Data/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/C/tools/Sublime Text Build 3143 x64/Data/Packages/User/SublimeAStyleFormatter.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/cpp.sublime-build",
+	"project": "Practice.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 258.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
