@@ -1,7 +1,8 @@
 // Created by Hz Yang on 2018.03
+//超时
 #include <bits/stdc++.h>
 using namespace std;
-int c[10000][10000];
+int c[20000][20000];
 int main()
 {
 	int n;
