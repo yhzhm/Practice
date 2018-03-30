@@ -8,8 +8,7 @@ struct st
 };
 bool comp(st a, st b)
 {
-	if (a.score > b.score) return true;
-	else return false;
+	return a.score > b.score;
 }
 int main()
 {
