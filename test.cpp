@@ -4,6 +4,8 @@ using namespace std;
 int main()
 {
 	double d = 1e10;
+	string s;
+	
 	cout << setprecision(3) << d << endl;
 	return 0;
 }
