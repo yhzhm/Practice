@@ -22,30 +22,15 @@ int main()
 	for (int i = 0; i < n; ++i) {
 		sum += a[i][x].b % 20123;
 		sum %= 20123;
-		z = a[i][x].a ? a[i][x].b - 1 : a[i][x].b;
-		z = z % cnt[i];
-		cin >> n >> m;
-		node a[n][m];
-		for (int i = 0; i < n; ++i) {
-			for (int j = 0; j < m; ++j) {
-				cin >> a[i][j].a >> a[i][j].b;
-			}
-		}
-		int x, z, sum = 0; cin >> x;
-		for (int i = 0; i < n; ++i) {
-			sum += a[i][x].b % 20213;
-			sum %= 20123;
-			z = a[i][x].a ? a[i][x].b - 1 : a[i][x].b;
-			z = (z % cnt[i]) + 1;
-			while (z > 0) {
-				x++;
-				x = x % m;
-				if (a[i][x].a) z--;
-				// if (a[i][(++x) % m].a) z--;
-			}
+		z = (a[i][x].b % cnt[i]) + 1;
+		if (a[i][x].a) z--;
+		while (z > 0) {
+			x++;
+			if (x >= m) x = x % m;
+			if (a[i][x].a) z--;
+			// if (a[i][(++x) % m].a) z--;
 		}
 	}
-	// cout << sum << endl;
 	printf("%d\n", sum);
 	return 0;
 }
