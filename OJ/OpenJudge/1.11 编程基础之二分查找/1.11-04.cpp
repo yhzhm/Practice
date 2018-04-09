@@ -23,7 +23,7 @@ int main()
 	l = 0; r = maxn + 1; //maxn的值需加1
 	while (r - l > 1) {
 		mid = (l + r) / 2;
-//		cout<<l<<' '<<r<<' '<<mid<<endl;
+		// cout << l << ' ' << r << ' ' << mid << endl;
 		if (check(mid) >= k)l = mid;
 		else r = mid;
 	}
