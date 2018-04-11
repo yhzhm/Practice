@@ -1,27 +1,29 @@
-//数据范围最大60位，超范围
 #include<bits/stdc++.h>
 using namespace std;
+bool isp(int n)
+{
+	if (n < 2) return false;
+	for (int i = 2; i * i <= n; ++i) {
+		if (n % i == 0)return false;
+	}
+	return true;
+}
+bool ish(int n)
+{
+	int s = 0, x = n;
+	while (x > 0) {
+		s = s * 10 + x % 10;
+		x /= 10;
+	}
+	return s == n;
+}
 int main()
 {
-	string s; int t, sum = 0;
-	cin >> s ;
-	string::size_type p = 0, n = s.size();
-	for (int i = 0; i < s.size(); ++i) {
-		if (s[i] == '0') {p = i + 1; continue;}
-		else break;
+	int n, cnt = 0;
+	cin >> n;
+	for (int i = 11; i <= n; ++i) {
+		if (isp(i) && ish(i)) cnt++;
 	}
-	for (int i = p; i < s.size(); ++i) {
-		sum = sum * 10 + (s[i] - '0');
-	}
-	string ss = s + s;
-	string x;
-	// string ss = to_string(sum);
-	// ss = ss + ss;
-	bool flag = 1;
-	for (int i = 1; i <= n; ++i) {
-		x = to_string(sum * i);
-		if (ss.find(x) == string::npos) {flag = 0; break;}
-	}
-	cout << flag << endl;
+	cout << cnt << endl;
 	return 0;
 }
