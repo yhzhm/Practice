@@ -17,10 +17,10 @@ int main()
 			if (a[i][j].a) cnt[i]++;
 		}
 	}
-	int x, z, sum = 0; cin >> x;
+	int x, sum = 0; cin >> x;
 	for (int i = 0; i < n; ++i) {
 		sum += a[i][x].b % 20123;
-		z = (a[i][x].b % cnt[i]);
+		int z = (a[i][x].b % cnt[i]);
 		if (!z) z = cnt[i];
 		if (a[i][x].a) z--;
 		while (z > 0) {
