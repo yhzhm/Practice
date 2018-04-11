@@ -15,7 +15,7 @@ int main()
 		getline(cin, s);
 		count(s);
 	}
-	for (int i = 65; i <= 90; ++i) {
+	for (int i = 65; i <= 90; ++i) {//不在统计时找最大值，减少比较次数
 		maxn = max(cnt[i], maxn);
 	}
 	for (int i = maxn; i >= 1; --i) {
