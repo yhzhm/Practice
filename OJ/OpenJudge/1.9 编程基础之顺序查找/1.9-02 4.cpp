@@ -11,6 +11,9 @@ int main()
 		cin >> z.first >> z.second;
 		s.insert(z);
 	}
-	cout << s.rbegin()->second << endl;
+	set<st>::iterator p;
+	p = s.end();
+	// p--;
+	cout << (--p)->second << endl;
 	return 0;
 }
