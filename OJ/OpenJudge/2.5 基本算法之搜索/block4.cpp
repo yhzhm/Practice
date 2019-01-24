@@ -31,6 +31,6 @@ int main() {
 				ret++;
 			}
 	cout << ret;
-//	fclose(stdin);fclose(stdout);
+	fclose(stdin); fclose(stdout);
 	return 0;
 }

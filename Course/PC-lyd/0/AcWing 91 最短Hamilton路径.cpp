@@ -18,8 +18,8 @@ int main()
 		for (int j = 0; j < n; ++j)
 			if (i >> j & 1) {//判断i的二进制表示中，第j位是否是1，也就是i表示的集合中，是否包含j
 				for (int k = 0; k < n; ++k) {
-					if ((i - (1 << j)) >> k & 1) //除掉j，且包含k
-						f[i][j] = min(f[i][j], f[i - (1 << j)][k] + weight[k][j]);
+					if (i >> k & 1) //包含k
+						f[i][j] = min(f[i][j], f[i - (1 << j)][k] + weight[k][j]);//排除j，等价于：i ^ 1 << j
 				}
 			}
 	cout << f[(1 << n) - 1][n - 1] << endl;//[(1 << n) - 1]表示所有点都遍历过了，并且最后停在n-1这个点
