@@ -38,7 +38,7 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         if (a[i] == a[i - 1]) {
             score++;
-            score=score>3?3:score;
+            score = score > 3 ? 3 : score;
         }
         else score = 1;
         b[a[i]] += score;

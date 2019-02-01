@@ -45,9 +45,10 @@ int main() {
             b[j * 2 - 1] = a[j];
             b[j * 2] = a[m + j];
         }
-        for (int j = 1; j <= n; ++j) {
-            a[j] = b[j];
-        }
+        // for (int j = 1; j <= n; ++j) {
+        //     a[j] = b[j];
+        // }
+        memcpy(a, b, sizeof a);
     }
     cout << a[x] << endl;
     return 0;

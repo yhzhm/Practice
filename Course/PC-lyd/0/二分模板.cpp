@@ -1,4 +1,7 @@
+二分本质上是求边界
+
 一般写二分的思考顺序是这样的：
+
 首先通过题目背景和check(mid)函数的逻辑，判断答案落在左半区间还是右半区间。
 左右半区间的划分方式一共有两种：
 
@@ -40,3 +43,18 @@ int bsearch_2(int l, int r)
 	return l;
 }
 
+== == == == == == == == == == ==
+实数二分：
+
+double eps = 1e-6 //精度设置一般是要求的小数位数+2
+while (r - l > eps) {
+	double mid = (l + r) / 2;
+	if (check()) r = mid;
+	else l = mid;
+}
+
+for (int k = 0; k < 100; ++k) {
+	double mid = (l + r) / 2;
+	if (check()) r = mid;
+	else l = mid;
+}
