@@ -41,7 +41,13 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= k; ++j) {
             cin >> a[i][j];
-            if (a[i][j] != 0) b[j] = 1;
+            if (a[i][j] != 0) {
+                // if((a[i][j]==1&&b[j]==2)||(a[i][j]==2&&b[j]==1)){
+                //     cout<<-1<<endl;
+                //     return 0;
+                // }
+                b[j] = a[i][j];
+            }
         }
     }
     for (int i = 1; i <= k; ++i) {
