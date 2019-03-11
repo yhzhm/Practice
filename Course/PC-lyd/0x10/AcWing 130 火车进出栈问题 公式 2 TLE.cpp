@@ -6,7 +6,7 @@ const ll m = 1e9;
 struct num {int s; ll a[120010];};
 num ans;
 
-void operator *(num &a, ll &b)
+void operator *(num &a, ll &b)//不传参，直接计算
 {
 	ll jin = 0;
 	for (int i = 1; i <= a.s; ++i) {
@@ -17,7 +17,7 @@ void operator *(num &a, ll &b)
 	while (jin) a.a[++a.s] = jin % m, jin /= m;
 }
 
-void operator /(num &a, ll &b)//高精度/int
+void operator /(num &a, ll &b)//高精度除以int
 {
 	ll rest = 0;
 	for (int i = a.s; i; --i) {

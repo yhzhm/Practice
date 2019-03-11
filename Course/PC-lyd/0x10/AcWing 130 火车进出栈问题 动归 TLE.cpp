@@ -45,6 +45,10 @@ print(math.factorial(n*2)//(math.factorial(n)*math.factorial(n))//(n+1))
  */
 
 /*
+公式：第n项卡特兰数 C(n,2*n)/(n+1)
+ */
+
+/*
 动归：
 F[i][j]表示有i个数尚未进栈，目前有j个数在栈里，已经有n-i-j个数出栈时的方案总数
 边界：F[0][0]=1,目标：F[N][0]

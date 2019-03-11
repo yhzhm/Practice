@@ -17,7 +17,7 @@ int main()
 		while (~scanf("%s", s) && s[0] != 'S')	{//~可去掉
 			if (s[0] == 'E') {
 				scanf("%d", &x);//小组若为空，在q[0]队列中记录小组编号
-				if (!q[c[x]].size()) q[0].push_back(c[x]);
+				if (!q[c[x]].size()) q[0].push_back(c[x]);//可用empty()替代
 				q[c[x]].push_back(x);//插入所在小组
 			}
 			else {
@@ -28,12 +28,9 @@ int main()
 			}
 		}
 		puts("");
-		for (int i = 0; i <= n * 2; ++i)
-			cout << q[i].size() << ':' << q[i].empty() << endl;
 	}
 	return 0;
 }
 /*
-deque中empty()和size()有区别
-
+用empty()时不用取反有区别
  */

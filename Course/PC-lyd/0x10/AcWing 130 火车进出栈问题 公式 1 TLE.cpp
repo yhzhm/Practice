@@ -36,12 +36,12 @@ num operator /(num &a, int &b)//高精度/int
 int main()
 {
 	int n; cin >> n;
-	ans.s = ans.a[1] = 1;
+	ans.s = ans.a[1] = 1;//计算（n+2）*（n+3)*...*(n*2)
 	for (int i = 2; i <= n; ++i) {
 		int x = i + n;
 		ans = ans * x;
 	}
-	for (int i = 2; i <= n; ++i)
+	for (int i = 2; i <= n; ++i)//计算ans/(2*3*...*n)
 		ans = ans / i ;
 	printf("%d", ans.a[ans.s]);
 	for (int i = ans.s - 1; i; --i) printf("%04d", ans.a[i]);
