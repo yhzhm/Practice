@@ -1,39 +1,59 @@
-// Created by Hz Yang on 2019.02
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-const int  M = 1e7;
-deque<int> q[1010];//deque有clear，queue没有clear
-int c[M + 10], n, m, x, t;//c[]哈希存储数字的小组编号
-char s[10];//读入命令
+vector<int> dp[105][105];
+int a[105][105];
+vector<int> plusy(vector<int> a, vector<int> b)
+{
+	vector<int> c;
+	int t = 0;
+	int maxsize = max(a.size(), b.size());
+	for (int i = 0; i < maxsize; ++i) {
+		if (i < a.size()) t += a[i];
+		if (i < b.size()) t += b[i];
+		t += a[i] + b[i];
+		c.push_back(t % 10);
+		t /= 10;
+	}
+	while (t) {
+		c.push_back(t % 10); t /= 10;
+	}
+	return c;
+}
+void aaa(vector<int> a) {
+	if (a.size() == 0) {
+		cout << 0;
+		return;
+	}
+	for (int i = a.size() - 1; i >= 0; --i) {
+		cout << a[i];
+	}
+	cout << endl;
+}
 int main()
 {
-	while (cin >> n && n)	{//可用scanf
-		for (int i = 0; i <= n; ++i) q[i].clear();
-		for (int i = 1; i <= n; ++i) {
-			scanf("%d", &m);//读入m个数，小组编号为i
-			for (int j = 1; j <= m; ++j) scanf("%d", &x), c[x] = i;
-		}
-		printf("Scenario #%d\n", ++t);
-		while (~scanf("%s", s) && s[0] != 'S')	{//~可去掉
-			if (s[0] == 'E') {
-				scanf("%d", &x);//小组若为空，在q[0]队列中记录小组编号
-				if (!q[c[x]].size()) q[0].push_back(c[x]);
-				q[c[x]].push_back(x);//插入所在小组
-			}
-			else {
-				x = q[0].front();//q[0]中队首小组
-				printf("%d\n", q[x].front());//输出该小组的队首元素
-				q[x].pop_front();//弹出
-				if (!q[x].size()) q[0].pop_front();//若小组为空，将该小组编号弹出q[0]队列
-			}
-		}
-		puts("");
-		for (int i = 0; i <= n * 2; ++i)
-			cout << q[i].size() << ':' << q[i].empty() << endl;
+//	freopen("move.in","r",stdin);
+//	freopen("move.out","w",stdout);
+	int m, n;
+	cin >> m >> n;
+	for (int i = 1; i <= m; ++i)
+		for (int j = 1; j <= n; ++j)
+			cin >> a[i][j];
+	dp[1][1] = vector<int>(1, 1);
+	for (int i = 1; i <= m; ++i) {
+		if (a[i][1] == 1) break;
+		dp[i][1] = vector<int>(1, 1);
 	}
+	for (int i = 1; i <= n; ++i) {
+		if (a[1][i] == 1) break;
+		dp[1][i] = vector<int>(1, 1);
+	}
+	for (int i = 2; i <= m; ++i) {
+		for (int j = 2; j <= n; ++j) {
+			if (a[i][j] == 0)
+				dp[i][j] = plusy(dp[i - 1][j], dp[i][j - 1]);
+		}
+	}
+	aaa(dp[m][n]);
+	fclose(stdin); fclose(stdout);
 	return 0;
 }
-/*
-deque中empty()和size()有区别
-
- */

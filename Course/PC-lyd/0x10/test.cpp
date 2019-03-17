@@ -1,75 +1,53 @@
-// Author: A_Comme_Amour
-#include<cstdio>
-#include<queue>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
-#define p u/v
-long long n, m, len, t, a, u, v;
-const int MAXN = 1e7 + 1;
-int que[MAXN], que1[MAXN], que2[MAXN];
-int tail1, tail2, tail3, head1, head2, head3;
-
-inline int read()
+vector<int> dp[105][105];
+int a[105][105];
+vector<int> plusv(vector<int> a, vector<int> b)
 {
-	int now = 0; char ch = getchar();
-	while (ch < '0' || ch > '9') ch = getchar();
-	while (ch >= '0' && ch <= '9')
-	{
-		now = (now << 1) + (now << 3) + ch - '0';
-		ch = getchar();
+	vector<int> c;
+	int t = 0;
+	int maxsize = max(a.size(), b.size());
+	for (int i = 0; i < maxsize; ++i) {
+		if (i < a.size()) t += a[i];
+		if (i < b.size()) t += b[i];
+		c.push_back (t % 10);
+		t /= 10;
 	}
-	return now;
+	while (t) c.push_back(t % 10), t /= 10;
+	return c;
 }
 
-void write(int x)
+void output(vector<int> a)//逆序输出结果
 {
-	if (x < 0) {putchar('-'); x = -x;}
-	if (x > 9) write(x / 10);
-	putchar(x % 10 + '0');
+	if (a.empty()) {cout << 0 << endl; return;}
+	for (int i = a.size() - 1; i >= 0; --i) cout << a[i];
+	cout << endl;
 }
-
-int find(int x)//查询第x秒最长的蚯蚓
-{
-	int a, b, c, d; a = b = c = d = -1;
-	if (head1 <= tail1) b = que[head1] + x * len;
-	if (head2 <= tail2) c = que1[head2] + x * len;
-	if (head3 <= tail3) d = que2[head3] + x * len;
-	a = max(b, max(c, d)); //找出最长的蚯蚓
-	if (a == b) head1++; //判断是在哪个队列中，并将其弹出
-	else//三者之中选一个
-	{
-		if (a == c) head2++;
-		else head3++;
-	}
-	return a;
-}
-
-bool comp(int a, int b)
-{
-	return a > b;
-}
-
 int main()
 {
-	n = read(); m = read(); len = read(); u = read(); v = read(); t = read();
-	for (int i = 1; i <= n; i++)
-		que[i] = read();
-	sort(que + 1, que + 1 + n, comp);
-	tail1 = n; head1 = head2 = head3 = 1;
-	for (int i = 1; i <= m; i++)
-	{
-		int x = find(i - 1);
-		if (i % t == 0) {write(x); putchar(' ');}
-		int new1 = x * p;
-		int new2 = x - new1;
-		que1[++tail2] = new1 - i * len;
-		que2[++tail3] = new2 - i * len;
+//	freopen("move.in","r",stdin);
+//	freopen("move.out","w",stdout);
+	int m, n;
+	cin >> m >> n;
+	for (int i = 1; i <= m; ++i)
+		for (int j = 1; j <= n; ++j)
+			cin >> a[i][j];
+	dp[1][1] = vector<int>(1, 1);
+	for (int i = 1; i <= m; ++i) {
+		if (a[i][1] == 1) break;
+		dp[i][1] = vector<int>(1, 1);
 	}
-	putchar('\n');
-	for (int i = 1; i <= n + m; i++)
-	{
-		int x = find(m);
-		if (i % t == 0) {write(x); putchar(' ');}
+	for (int i = 1; i <= n; ++i) {
+		if (a[1][i] == 1) break;
+		dp[1][i] = vector<int>(1, 1);
 	}
+	for (int i = 2; i <= m; ++i) {
+		for (int j = 2; j <= n; ++j) {
+			if (a[i][j] == 0)
+				dp[i][j] = plusv(dp[i - 1][j], dp[i][j - 1]);
+		}
+	}
+	output(dp[m][n]);
+	fclose(stdin); fclose(stdout);
 	return 0;
 }

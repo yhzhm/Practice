@@ -34,10 +34,10 @@ int main()
 			cin >> a >> b;
 			num[b].p = a;
 		}
-		for (int i = 1; i < n; ++i) {//操作n-1次
+		for (int i = 1; i < n; ++i) {//合并操作n-1次
 			int pos = find();//pos等效权值最大节点的编号
-			cout << pos << ' ';
-			num[pos].w = 0;//将最大节点的等效权值置为0
+			// cout << pos << ' ';
+			num[pos].w = 0;//将最大节点的等效权值置为0,不再能被find搜索到，相当于删除了该节点
 			int f = num[pos].p;
 			ans += num[pos].c * num[f].t;//染色并累加代价
 			for (int j = 1; j <= n; ++j) {
