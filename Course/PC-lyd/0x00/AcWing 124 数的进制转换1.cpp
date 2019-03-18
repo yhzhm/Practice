@@ -21,7 +21,7 @@ void solve()
 		while (len > 0 && !t[len - 1]) len--;//去掉右侧的0（低位）
 	}
 	s2[k] = '\0';//字符串结束标识
-	for (i = 0; i < k; ++i)//逆序转换各位为字母
+	for (int i = 0; i < k; ++i)//逆序转换各位为字母
 		s2[k - 1 - i] = a[i] + (a[i] < 10 ? 48 : (a[i] < 36 ? 55 : 61));
 }
 int main()
@@ -30,7 +30,6 @@ int main()
 	scanf("%d", &T);
 	while (T--) {
 		scanf("%d%d%s", &n, &m, s1);
-		printf("%d %s\n\n", n, s1);
 		solve();
 		printf("%d %s\n%d %s\n\n", n, s1, m, s2);
 	}
