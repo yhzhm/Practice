@@ -11,8 +11,8 @@ int main()
 	set<pair<int, int>> existed;//用来判重
 	cin >> n >> p >> h >> m;
 	d[1] = h;//对应的前缀和序列中每个元素都为h
-	for (int i = 0; i < N; ++i) cout << d[i] << ' ';
-	cout << endl;
+	// for (int i = 0; i < N; ++i) cout << d[i] << ' ';
+	// cout << endl;
 	for (int i = 0, a, b; i < m; i ++ )
 	{
 		cin >> a >> b;
