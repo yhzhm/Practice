@@ -1,39 +1,29 @@
-// Author: SJZEZ wccy
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <cstring>
+// Created by Hz Yang on 2019.04
+#include <bits/stdc++.h>
 using namespace std;
-
-const int T = 1000003;
-
-int n, k, q[T], h, t, a[T], aa[T], bb[T];
-
+const int M = 105;
+typedef pair<double, double> PDD;
+PDD a[M];
+int n, t;
+int f(int x, int y, int n)
+{
+	switch (n) {
+	case 1: return x + y; break;
+	case 2: return x - y; break;
+	case 3: return x * y; break;
+	case 4: return x / y; break;
+	default: return 0;
+	}
+}
 int main()
 {
-	scanf("%d%d", &n, &k);
-	for (int i = 1; i <= n; i++)
-		scanf("%d", &a[i]);
-	h = 1, t = 2;
-	for (int i = 1; i <= n; i++)
-	{
-		while (h <= t && q[h] < i - k + 1)	h++;
-		while (h <= t && a[q[t]] > a[i])	t--;
-		q[++t] = i;
-		aa[i] = a[q[h]];
-	}
-	memset(q, 0, sizeof(q)), h = 1, t = 2;
-	for (int i = 1; i <= n; i++)
-	{
-		while (h <= t && q[h] < i - k + 1)	h++;
-		while (h <= t && a[q[t]] < a[i])	t--;
-		q[++t] = i;
-		bb[i] = a[q[h]];
-	}
-	for (int i = k; i <= n; i++)
-		printf("%d ", aa[i]);
-	printf("\n");
-	for (int i = k; i <= n; i++)
-		printf("%d ", bb[i]);
+	int a, b, c, d, e, ans = 0;
+	cin >> a >> b >> c >> d >> e;
+	for (int i = 1; i <= 4; i++)
+		for (int j = 1; j <= 4; j++)
+			for (int k = 1; k <= 4; k++) {
+				if (f(f(f(a, b, i), c, j), d, k) == e) ans++;
+			}
+	cout << ans << endl;
 	return 0;
 }
