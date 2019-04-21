@@ -29,10 +29,24 @@ bool find(char* s)
 	for (int i = 0; i < len; ++i) {
 		int c = s[i] - '0';
 		p = trie[p][c];
-		if (ed[p] == 1) return false;
+		if (ed[p] == 1) return false;//若存在某个节点为1，则该字符串并非某个字符串的子串
 	}
-	return true;
+	return true;//遍历字符串s的所有字符，每个字符出现次数都大于1，说明s是某个字符串的子串
 }
+
+// void out()
+// {
+// 	for (int  i = 0; i < 10; ++i) {
+// 		for (int j = 0; j < 10; ++j) {
+// 			cout << trie[i][j] << ' ';
+// 		}
+// 		cout << endl;
+// 	}
+// 	cout << endl;
+// 	for (int i = 0; i < 10; ++i) cout << ed[i] << ' ';
+// 	cout << endl;
+// 	cout << endl;
+// }
 
 int main()
 {
@@ -42,8 +56,10 @@ int main()
 		cin >> n;
 		for (int i = 1; i <= n; ++i) scanf("%s", s[i]), insert(s[i]);
 		int ok = 1;
-		for (int i = 1; i <= n; ++i)
+		for (int i = 1; i <= n; ++i) {
+			// cout << i << ':' << find(s[i]) << endl;
 			if (find(s[i])) {ok = 0; break;}
+		}
 		if (ok) puts("YES");
 		else puts("NO");
 	}
