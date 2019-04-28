@@ -6,11 +6,11 @@ const ll M = 1e9;
 ll a[60010], c[120010];
 int n, p;
 
-void factor(int n, int cnt)//分解质因数，统计在c[]中，分母cnt=1，分子cnt=-1
+void factor(int n, int flag)//分解(质)因数，统计在c[]中，分母flag=1，分子flag=-1
 {
 	for (int i = 2; i * i <= n; ++i)
-		while (n % i == 0) c[i] += cnt, n /= i;
-	if (n) c[n] += cnt;
+		while (n % i == 0) c[i] += flag, n /= i;
+	if (n) c[n] += flag;
 }
 
 void calc(ll x)//高精度计算，所有因数相乘
