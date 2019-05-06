@@ -21,7 +21,7 @@ int main()
 	}
 
 	for (int i = n; i > 1; --i) {
-		int j = p[i], left = j - 1, right = j + 1;
+		int j = p[i], left = l[j], right = r[j];
 		int vl = abs(a[j].first - a[left].first);
 		int vr = abs(a[j].first - a[right].first);
 		if (vl <= vr) ans[i] = {vl, a[left].second};
