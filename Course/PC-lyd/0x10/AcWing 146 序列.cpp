@@ -29,11 +29,25 @@ int main()
 		sort(a, a + n);
 		for (int i = 1; i < m; ++i) {
 			for (int j = 0; j < n; ++j) scanf("%d", &b[j]);
-			sort(b, b + n);
-			work();
+			// sort(b, b + n); //b数组是否有序不影响结果
+			work();//利用堆进行n路归并
 		}
 		for (int i = 0; i < n; ++i) printf("%d ", a[i]);
 		puts("");
 	}
 	return 0;
 }
+
+/*
+考虑当m=2时的情况：
+分组：
+a0+b0 a1+b0 a2+b0 ... an+b0
+a0+b1 a1+b1 a2+b1 ... an+b1
+a0+b2 a1+b2 a2+b2 ... an+b2
+.
+.
+.
+a0+bn a1+bn a2+bn ... an+bn
+在该分组方案中，每行最小值为每行队首，
+现将n个队首入堆，然后取出堆顶（最小值），替换该队列中的下一个元素入堆
+ */
