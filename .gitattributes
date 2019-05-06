@@ -16,6 +16,6 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-*.js linguist-language=C/C++
-*.css linguist-language=C/C++
+*.js linguist-language=C++
+*.css linguist-language=C++
 
