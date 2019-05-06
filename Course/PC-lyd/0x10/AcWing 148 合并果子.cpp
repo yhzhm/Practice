@@ -1,7 +1,6 @@
 // Created by Hz Yang on 2019.03
 #include <bits/stdc++.h>
 using namespace std;
-const int M = 1e5;
 int main()
 {
 	int n, x, res = 0;
