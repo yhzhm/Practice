@@ -19,7 +19,7 @@ int main()
 {
 	cin >> n >> k;
 	for (int i = 0; i < n; ++i) cin >> d[i];
-	for (int i = n - 1; ~i; --i) d[i] -= d[i - 1];
+	for (int i = n - 1; i; --i) d[i] -= d[i - 1];
 
 	set<PLI> s;
 	d[0] = d[n] = 1e15;
