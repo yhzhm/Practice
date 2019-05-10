@@ -16,7 +16,7 @@ int main()
 
 	memset(st, true, sizeof st);
 
-	for (int i = 1; i <= n; ++i) {
+	for (int i = 1; i <= n; ++i) {//暴力枚举，求每行循环节长度
 		scanf("%s", str[i]);
 		for (int j = 1; j <= m; ++j) //枚举循环节长度为j时能否成立
 			if (st[j]) {
@@ -30,14 +30,11 @@ int main()
 			}
 	}
 
-	int width;
+	int width;//所有行的最小循环节长度
 	for (int i = 1; i <= m; ++i)
-		if (st[i]) {
-			width = i;
-			break;
-		}
+		if (st[i]) { width = i; break; }
 
-	for (int i = 1; i <= n; ++i) str[i][width] = 0;
+	for (int i = 1; i <= n; ++i) str[i][width] = 0;//将每行缩短为width，'\0'的ascii值为0
 
 	for (int i = 2, j = 0; i <= n; ++i) {
 		while (j && strcmp(str[i], str[j + 1])) j = Next[j]; //strcmp相等返回0，小于返回-1，大于返回1
