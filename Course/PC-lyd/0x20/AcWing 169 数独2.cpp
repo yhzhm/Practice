@@ -1,5 +1,6 @@
 // Created by Hz Yang on 2019.05
 #include <iostream>
+<<<<<<< HEAD
 #include <cstring>
 using namespace std;
 
@@ -186,5 +187,13 @@ int main()
 		} printf("\n");
 	}
 end:
+=======
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+
+>>>>>>> origin/master
 	return 0;
 }

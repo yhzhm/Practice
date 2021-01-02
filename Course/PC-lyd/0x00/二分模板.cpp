@@ -28,6 +28,7 @@ int bsearch_1(int l, int r)
 	}
 	return l;
 }
+
 版本2
 当区间[l, r]的更新操作是r = mid - 1; l = mid; 时，计算mid时需要加1。
 
