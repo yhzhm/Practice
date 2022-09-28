@@ -5,9 +5,11 @@ int main()
 {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-	double d = 1e10;
-	string s;
+	// double d = 1e10;
+	// cout << setprecision(3) << d << endl;
 
-	cout << setprecision(3) << d << endl;
+	int a, b;
+	cin >> a >> b;
+	cout << a + b << endl;
 	return 0;
 }
