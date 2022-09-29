@@ -14,10 +14,14 @@ int main()
 
     for (int i = 0; i < n; ++i)
     {
-        int last = 0;
-        while(tt > 0 && h[q[tt]] < h[i])
+        while(tt >= 0 && h[q[tt]] < h[i])
         {
-            res += (h[q[tt]] - last)
+            int top = q[tt --];
+            if (tt < 0) break;
+            res += (min(h[q[tt]], h[i]) - h[top])* (i - q[tt] - 1);
         }
+        q[++ tt] = i;
     }
+    cout << res << endl;
+    return 0;
 }
